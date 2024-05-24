@@ -55,8 +55,7 @@
 		</section>
 		<script>
 			var video = document.getElementById("vid");
-
-
+			//PLAY
 			function videoPlay(){
 				if (!video.paused){
 					alert("El vídeo s'està reproduint")
@@ -64,7 +63,7 @@
 					video.play();
 				}
 			}
-
+			//PAUSE
 			function videoStop(){
 				if (video.paused){
 					alert("El vídeo està parat");
@@ -73,7 +72,7 @@
 				}
 			}
 
-
+			//PAUSE AMB SCROLL
 			function stop_scroll(){
             /*Elements necesaris per saber si el video hi es dins del viewport*/
             var videoTop = video.getBoundingClientRect().top;
