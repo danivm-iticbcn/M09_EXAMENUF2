@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="CSS/style.css"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Restaurant</title>
+		<!--ICONES-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	</head>
+	<body>
+		<!--EXERCICI 1-->
+		<section>
+			<h2>Galeria d'imatges</h2>
+			<div class="gallery">
+				<div class="image-container">
+					<img src="IMAGES/plat1.jpg" alt="Imatge plat de verdures">
+				</div>
+				<div class="image-container">
+					<img src="IMAGES/plat2.jpg" alt="Imatge plat despaguettis">
+				</div>
+				<div class="image-container">
+					<img src="IMAGES/plat3_rescaled.jpg" alt="Imatge plat de salmó amb verdures">
+				</div>
+			</div>
+		</section>
+		<!--EXERCICI 2-->
+		<section>
+			<h2 class="espai">Imatges Responsives</h2>
+			<div class="img-container">
+				<picture>
+					<source media="(max-width:640px)" srcset="IMAGES/img_responsive2_640.png">
+					<source media="(max-width:1024px)" srcset="IMAGES/img_responsive2_1024.png">
+					<img class="cap" alt="imatge de presentacio del restaurant els coberts" src="IMAGES/img_responsive2_escriptori.png">
+				</picture>
+			</div>
+		</section>
+		<!--EXERCICI 3-->
+		<section>
+			<h2 class="espai">Animacions</h2>
+			<div class="animacio">Capa</div>
+		</section>
+		<!--EXERCICI 4-->
+		<section>
+			<h2 class="espai">Video</h2>
+			<div class="video-parent">
+				<video id="vid" class="vd">
+					<source src="VIDEOS/video.mp4" type="video/mp4">
+				</video>
+				<div class="botones">
+					<button onclick="videoPlay()"><span class="material-symbols-outlined">play_arrow</span></button>
+					<button onclick="videoStop()"><span class="material-symbols-outlined">pause</span></button>
+				</div>
+			</div>
+		</section>
+		<script>
+			var video = document.getElementById("vid");
+
+
+			function videoPlay(){
+				if (!video.paused){
+					alert("El vídeo s'està reproduint")
+				} else{
+					video.play();
+				}
+			}
+
+			function videoStop(){
+				if (video.paused){
+					alert("El vídeo està parat");
+				} else{
+					video.pause();
+				}
+			}
+
+
+			function stop_scroll(){
+            /*Elements necesaris per saber si el video hi es dins del viewport*/
+            var videoTop = video.getBoundingClientRect().top;
+            var videoHeight = video.offsetHeight;
+            var windowHeight = window.innerHeight;
+            /*Fem que quan sortim del viewport el video pari*/
+				if (!(videoTop <= windowHeight && videoTop + videoHeight >= 0)) {
+					video.pause();
+					console.log("pause");
+				} 
+        	}
+			/*Afegim event de scroll amb la funcio*/
+			window.addEventListener('scroll', stop_scroll);
+
+		</script>
+	</body>
+</html>
